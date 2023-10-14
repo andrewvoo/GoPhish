@@ -25,14 +25,8 @@ const handleClick = () => setClick(!click)
                     {click ? (<FaTimes size={20} style={{color: '#333'}}/>) : (<FaBars size={20} style={{color: '#333'}} />)}
                 </div>
             </div>        
-        
-    
         </div>
     )
-
-
-
-
 }
 
 export default Navbar

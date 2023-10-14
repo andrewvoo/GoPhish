@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-function AxiosStuff() {
-  
-  
+function AxiosStuff({header}) {
     const [data, setData] = useState(null)
-    const url = 'https://www.virustotal.com/api/v3/urls/d3d3Lmdvb2dsZS5jb20'
+    const [results, setResults] = useState(null)
 
-    useEffect(() => {
-        const options = {
+    function formatURL(urlInput){
+      var newString = btoa(urlInput)
+      newString = newString.replace("=", "")
+      return newString
+    }
+
+    function scanUrl() {
+        var userURL = formatURL(header)
+        var options = {
             method: 'GET',
-            url: 'https://www.virustotal.com/api/v3/urls/d3d3Lmdvb2dsZS5jb20',
+            url: 'https://www.virustotal.com/api/v3/urls/' + userURL,
             headers: {
               accept: 'application/json',
               'x-apikey': '28d4db81c6b4c9512609abd75ee6722a0fe66da83ece18c53ef6d23694912b8f'
@@ -19,16 +24,25 @@ function AxiosStuff() {
           
           axios
             .request(options)
-            .then(function (response) {
-              console.log(response.data);
+            .then((response) => {
+              let attrs = response.data.data.attributes;
+              setResults(JSON.stringify(attrs.last_analysis_stats))
+              console.log(results);
             })
             .catch(function (error) {
               console.error(error);
             });
-    }, [])
+    }
+
+    React.useEffect(() => {
+      scanUrl();
+    }, [header]);
+    
 
     return (
-    <div>AxiosStuff</div>
+    <div>
+      <p>{results}</p>
+    </div>
   )
 }
 
