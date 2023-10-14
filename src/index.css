@@ -4,6 +4,14 @@
   --primary: #118c4f;
   --background: #bebebed0;
 }
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
   
 .primary {
   color: var(--primary);
@@ -12,6 +20,9 @@
 .container {
   max-width: 1000px;
   margin: auto;
+}
+p {
+  font-family: Arial Bold, sans-serif;
 }
 
 h1 {
@@ -56,6 +67,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.logo {
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  height: 450px;
+  width: 450px;
+  display: flex;
 }
 
 @media screen and (max-width: 450px) {
