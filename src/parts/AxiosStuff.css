@@ -1,0 +1,18 @@
+.box {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-evenly;
+ align-items: center;
+ gap: 0.5em;
+}
+
+.items {
+    width: 150px;
+    height: 150px;
+    background-color: var(--background);
+    padding: 1em;
+    color: black;
+    text-align: center;
+    border: 10px solid var(--primary);
+    border-radius: 10px;
+}
