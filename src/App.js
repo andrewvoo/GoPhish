@@ -46,10 +46,10 @@ function App() {
 
   function validateOnSubmit(url){
     if (url === '') {
-      console.log("debug: CHECK ON SUBMIT form invalid")
+      console.log("Check if the submission is invalid")
       return false;
     }else{
-      console.log("debug: CHECK ON SUBMIT form valid")
+      console.log("Check if the submission is valid")
       return true;
     }
   }
@@ -59,7 +59,7 @@ function App() {
     <div className='App'>
     <Navbar />
     <img src={FishLogo} alt="logo" className='logo'/>
-    <p>Enter a URL below to check its validity. Must end in a top-level domain (.com, .gov, .co.uk, .de, etc.)</p>
+    <h5>Please enter a URL below for further analysis.</h5>
     <Form noValidate className='url-form' onSubmit={e => {
         e.preventDefault();  // Prevent the default form submission behavior
         handleSubmit(tempUrl);
@@ -79,7 +79,7 @@ function App() {
                 onChange={e => {setTempUrl(e.target.value); checkValidation(e.target.value)}}
               />
               <Form.Control.Feedback type="invalid">
-                URL is required.
+                <h5>Notice: a valid URL is required. This would include top-level domains.</h5>
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
