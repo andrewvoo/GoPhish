@@ -7,12 +7,11 @@
 }
 
 .items {
-    width: 150px;
-    height: 150px;
+    width: fit-content;
     background-color: var(--background);
     padding: 1em;
     color: black;
     text-align: center;
-    border: 10px solid var(--primary);
+    border: 8px solid black;
     border-radius: 10px;
 }
